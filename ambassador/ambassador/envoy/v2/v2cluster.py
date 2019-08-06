@@ -81,6 +81,9 @@ class V2Cluster(dict):
                 envoy_ctx = V2TLSContext(ctx=ctx, host_rewrite=cluster.get('host_rewrite', None))
                 if envoy_ctx:
                     fields['tls_context'] = envoy_ctx
+        per_connection_buffer_limit_bytes = cluster.get('per_connection_buffer_limit_bytes', None)
+        if per_connection_buffer_limit_bytes is not None:
+            fields['per_connection_buffer_limit_bytes'] = per_connection_buffer_limit_bytes
 
         self.update(fields)
 

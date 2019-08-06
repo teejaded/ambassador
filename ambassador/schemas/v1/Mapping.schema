@@ -113,6 +113,7 @@
         "cluster_idle_timeout_ms": { "type": "integer" },
         "timeout_ms": { "type": "integer" },
         "idle_timeout_ms": { "type": "integer" },
+        "per_connection_buffer_limit_bytes": { "type": "integer" },
         "tls": { "type": [ "string", "boolean" ] },
         "use_websocket": { "type": "boolean" },
         "weight": { "type": "integer" },
