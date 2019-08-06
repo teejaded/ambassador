@@ -95,6 +95,7 @@ class IRHTTPMapping (IRBaseMapping):
         "cluster_idle_timeout_ms": True,
         "timeout_ms": True,
         "idle_timeout_ms": True,
+        "per_connection_buffer_limit_bytes": True,
         "tls": True,
         "use_websocket": True,
         "weight": True,
