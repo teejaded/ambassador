@@ -99,6 +99,8 @@ class V2TLSContext(Dict):
             ( 'cert_required', self.__setitem__, 'require_client_certificate' ),
             ( 'min_tls_version', self.update_tls_version, 'tls_minimum_protocol_version' ),
             ( 'max_tls_version', self.update_tls_version, 'tls_maximum_protocol_version' ),
+            ( 'cipher_suites', self.__setitem__, 'cipher_suites' ),
+            ( 'ecdh_curves', self.__setitem__, 'ecdh_curves' ),
         ]:
             value = ctx.get(ctxkey, None)
 

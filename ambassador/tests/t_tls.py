@@ -536,6 +536,35 @@ name: {self.name}-same-context-error
 hosts:
 - tls-context-host-1
 """)
+        # Ambassador should allow configuring cipher_suites
+        yield self, self.format("""
+---
+apiVersion: ambassador/v1
+kind: TLSContext
+name: {self.name}-cipher-suites
+cipher_suites: |
+  ECDHE-ECDSA-AES128-GCM-SHA256
+  ECDHE-RSA-AES128-GCM-SHA256
+  ECDHE-ECDSA-AES128-SHA
+  ECDHE-RSA-AES128-SHA
+  AES128-GCM-SHA256
+  AES128-SHA
+  ECDHE-ECDSA-AES256-GCM-SHA384
+  ECDHE-RSA-AES256-GCM-SHA384
+  ECDHE-ECDSA-AES256-SHA
+  ECDHE-RSA-AES256-SHA
+  AES256-GCM-SHA384
+  AES256-SHA
+""")
+        # Ambassador should allow configuring ecdh_curves
+        yield self, self.format("""
+---
+apiVersion: ambassador/v1
+kind: TLSContext
+name: {self.name}-ecdh_curves
+ecdh_curves: P-256
+""")
+
 
     def scheme(self) -> str:
         return "https"
